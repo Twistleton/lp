@@ -5,15 +5,31 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         version="2.5">
-    <display-name>my Web App</display-name>
-    <display-name>Archetype Created Web Application</display-name>
+    <display-name>lp</display-name>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Verwaltung Meister</web-resource-name>
+            <url-pattern>/meisterbereich/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>zusmeister</role-name>
+        </auth-constraint>
+    </security-constraint>
     <servlet>
         <servlet-name>CutterbuchungController</servlet-name>
-        <servlet-class>com.rolfbenz.lp.CutterbuchungController</servlet-class>
+        <servlet-class>com.rolfbenz.lp.CutterbuchungController2</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CutterbuchungController</servlet-name>
         <url-pattern>/Cutterbuchung.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CutterbuchungMeisterController</servlet-name>
+        <servlet-class>com.rolfbenz.lp.CutterbuchungMeisterController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CutterbuchungMeisterController</servlet-name>
+        <url-pattern>/CutterbuchungMeister.do</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>TeamverwaltungController</servlet-name>
@@ -23,4 +39,51 @@
         <servlet-name>TeamverwaltungController</servlet-name>
         <url-pattern>/Teamverwaltung.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CutterzuweisungList</servlet-name>
+        <servlet-class>com.rolfbenz.lp.CutterzuweisungList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CutterzuweisungList</servlet-name>
+        <url-pattern>/CutterzuweisungList.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>showCutterrow</servlet-name>
+        <servlet-class>com.rolfbenz.lp.ShowCutterrow</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showCutterrow</servlet-name>
+        <url-pattern>/showCutterrow.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>showCutterteammitglied</servlet-name>
+        <servlet-class>com.rolfbenz.lp.ShowCutterteammitglied</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showCutterteammitglied</servlet-name>
+        <url-pattern>/showCutterteammitglied.do</url-pattern>
+    </servlet-mapping>
+        <servlet>
+        <servlet-name>showCutterpraemie</servlet-name>
+        <servlet-class>com.rolfbenz.lp.ShowCutterpraemie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showCutterpraemie</servlet-name>
+        <url-pattern>/showCutterpraemie.do</url-pattern>
+    </servlet-mapping>
+        <servlet>
+        <servlet-name>showCutterhaut</servlet-name>
+        <servlet-class>com.rolfbenz.lp.ShowCutterhaut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showCutterhaut</servlet-name>
+        <url-pattern>/showCutterhaut.do</url-pattern>
+    </servlet-mapping>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>geschützter Bereich für den Meister</realm-name>
+    </login-config>
+
 </web-app>

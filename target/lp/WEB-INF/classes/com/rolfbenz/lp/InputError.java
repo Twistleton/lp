@@ -1,11 +1,9 @@
 package com.rolfbenz.lp;
 
 /**
- * Created by IntelliJ IDEA.
- * User: U987
- * Date: 04.04.11
- * Time: 15:58
- * To change this template use File | Settings | File Templates.
+ *
+ *  lp - InputError oject
+ *
  */
 public class InputError {
 

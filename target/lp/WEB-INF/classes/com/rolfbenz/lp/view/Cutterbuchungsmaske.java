@@ -1,18 +1,18 @@
 package com.rolfbenz.lp.view;
 
-import com.rolfbenz.lp.domain.Cutterzuweisung;
+import com.rolfbenz.lp.entity.Cutterteammitglied;
+import com.rolfbenz.lp.entity.Cutterzuweisung;
+
+import java.util.List;
 
 /**
- * Created by IntelliJ IDEA.
  * User: U987
  * Date: 04.04.11
- * Time: 14:02
- * To change this template use File | Settings | File Templates.
  */
 public class Cutterbuchungsmaske {
 
-
     private Cutterzuweisung cutterzuweisung;
+    private List<Cutterteammitglied> cutterteammitgliedList;
 
     public Cutterzuweisung getCutterzuweisung() {
         return cutterzuweisung;
@@ -21,4 +21,13 @@ public class Cutterbuchungsmaske {
     public void setCutterzuweisung(Cutterzuweisung cutterzuweisung) {
         this.cutterzuweisung = cutterzuweisung;
     }
+
+    public List<Cutterteammitglied> getCutterteammitgliedList() {
+        return cutterteammitgliedList;
+    }
+
+    public void setCutterteammitgliedList(List<Cutterteammitglied> cutterteammitgliedList) {
+        this.cutterteammitgliedList = cutterteammitgliedList;
+    }
+
 }

@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-
-    <persistence-unit name="punit">
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>com.rolfbenz.lp.domain.Cutterzuweisung</class>
-        <class>com.rolfbenz.lp.domain.Cutterhaut</class>
-        <class>com.rolfbenz.lp.domain.Cutterteammitglied</class>
-        <class>com.rolfbenz.lp.domain.Cutterauftrag</class>
-        <properties>
-            <property name="hibernate.connection.url" value="jdbc:derby://localhost:1527/rb;create=true"/>
-            <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.ClientDriver"/>
-            <property name="hibernate.default_schema" value="PLR11" />
-            <property name="hibernate.connection.username" value="sa"/>
-            <property name="hibernate.connection.password" value="sa"/>
-            <property name="hibernate.archive.autodetection" value="class"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-        </properties>
-    </persistence-unit>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="punit" transaction-type="RESOURCE_LOCAL">
+      <provider>org.hibernate.ejb.HibernatePersistence</provider>
+      <class>com.rolfbenz.lp.entity.Cutterzuweisung</class>
+      <class>com.rolfbenz.lp.entity.Cutterteammitglied</class>
+      <class>com.rolfbenz.lp.entity.Cutterrow</class>
+      <class>com.rolfbenz.lp.entity.Cutterhaut</class>
+      <class>com.rolfbenz.lp.entity.Cutterpraemie</class>
+      <class>com.rolfbenz.lp.entity.BdeMadatEntity</class>
+      <properties>
+      <property name="hibernate.connection.username" value="plrv11"/>
+      <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+      <property name="hibernate.connection.password" value="dbplr"/>
+      <!--<property name="hibernate.connection.url" value="jdbc:oracle:thin:@10.85.64.33:1521:ORALX11T"/>-->
+      <property name="hibernate.connection.url" value="jdbc:oracle:thin:@10.85.68.6:1521:oralx11"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <!--attention: productive tables is use! Do not use create-drop  -->
+      <property name="hibernate.hbm2ddl.auto" value="validate" />
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+    </properties>
+  </persistence-unit>
 </persistence>

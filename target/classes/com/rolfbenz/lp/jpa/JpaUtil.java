@@ -2,9 +2,13 @@ package com.rolfbenz.lp.jpa;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- * Created by IntelliJ IDEA.
+ *
+ * lp - JpaUtil - get entity manager
+ *
  * User: U987
  * Date: 05.04.11
  *
@@ -18,9 +22,10 @@ public class JpaUtil {
         try {
 
             emf = Persistence.createEntityManagerFactory("punit");
+
         } catch (Throwable ex) {
 
-            System.err.println("Initial EntityManagerFactory creation failed." + ex);
+            Logger.getAnonymousLogger().log(Level.SEVERE , "Initial EntityManagerFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
         }
     }

@@ -1,6 +1,6 @@
 package com.rolfbenz.lp;
 
-import com.rolfbenz.lp.domain.*;
+import com.rolfbenz.lp.entity.*;
 import com.rolfbenz.lp.jpa.JpaUtil;
 import com.rolfbenz.lp.view.Cutterbuchungsmaske;
 
@@ -16,8 +16,11 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * User: Speer, Rolf
- * Date: 28.03.2011
+ *
+ *  Java Version - not in use
+ *
+ *
+ *
  */
 public class CutterbuchungController extends HttpServlet {
 
@@ -25,21 +28,28 @@ public class CutterbuchungController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        processRequest(request, response);
+//        processRequest(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        processRequest(request, response);
+//        processRequest(request, response);
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
 
+            System.out.println("CutterbuchungController ");
+
+            String id = request.getParameter("id");
+
+            System.out.println("ID ===> " + id);
+
+
         if (request.getParameter("berechnen") != null) {
             // Neuberechnung
-            neuBerechnung(request, response);
+//            neuBerechnung(request, response);
         } else if (request.getParameter("pruefen") != null) {
 
             // methode pruefen
@@ -49,7 +59,7 @@ public class CutterbuchungController extends HttpServlet {
 
             if (grund.equals("0")) {
                 System.out.println("KEIN GRUND AUSGEWAEHLT!");
-                sendMessage(request, response, new InputError("Es muss ein Prüfungsgrund ausgewählt werden!", "0"));
+//                sendMessage(request, response, new InputError("Es muss ein Prüfungsgrund ausgewählt werden!", "0"));
             } else                 {
                 // Setzen Status
 
@@ -60,7 +70,7 @@ public class CutterbuchungController extends HttpServlet {
             // methode freigeben
         } else if (request.getParameter("refresh") != null) {
             //  loadCutterzuweisung(request, response);
-            sendMessage(request, response, new InputError("... Daten wurden erneut geladen ...", "0"));
+//            sendMessage(request, response, new InputError("... Daten wurden erneut geladen ...", "0"));
         } else {
             // Daten neu laden
             loadCutterzuweisung(request, response);
@@ -70,14 +80,15 @@ public class CutterbuchungController extends HttpServlet {
 
     private void loadCutterzuweisung(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
-//
-//        EntityTransaction tx = em.getTransaction();
-//
-//        tx.begin();
-//
-//        System.out.println("loadCutterzuweisung");
-//
+        /*
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+
+        EntityTransaction tx = em.getTransaction();
+
+        tx.begin();
+
+        System.out.println("loadCutterzuweisung");
+
 //        Cutterteammitglied ct = new Cutterteammitglied();
 //
 //        em.persist(ct);
@@ -120,18 +131,17 @@ public class CutterbuchungController extends HttpServlet {
 
         LinkedList auftragsliste = new LinkedList();
 
-        for (int i = 0; i < 10; i++) {
+//        for (int i = 0; i < 10; i++) {
+//            auftragsliste.add(new Cutterauftrag("012345689", 978845, "1124567", 5.72f, 5.52f));
+//        }
 
-            auftragsliste.add(new Cutterauftrag("012345689", 978845, "1124567", 5.72f, 5.52f));
-
-        }
 
 
         // Artikelinfo
 
-        Cutterartikel cutterartikel = new Cutterartikel(38900, "LIN", 310);
-
-        cutterzuweisung.setCutterartikel(cutterartikel);
+//        Cutterartikel cutterartikel = new Cutterartikel(38900, "LIN", 310);
+//
+//        cutterzuweisung.setCutterartikel(cutterartikel);
 
         // Teaminfo
 
@@ -140,10 +150,10 @@ public class CutterbuchungController extends HttpServlet {
 
         LinkedList teammitglieder = new LinkedList();
 
-        teammitglieder.add(new Cutterteammitglied(1L, 0122, "Hugo","Meyer"));
-        teammitglieder.add(new Cutterteammitglied(2L, 1456, "Oscar", "Müller"));
+//        teammitglieder.add(new Cutterteammitglied(1L, 0122, "Hugo","Meyer"));
+//        teammitglieder.add(new Cutterteammitglied(2L, 1456, "Oscar", "Müller"));
 
-        cutterzuweisung.setCutterteammitgliedList(teammitglieder);
+//        cutterzuweisung.setCutterteammitgliedList(teammitglieder);
 
         LinkedList hautliste = new LinkedList();
 
@@ -152,8 +162,8 @@ public class CutterbuchungController extends HttpServlet {
         }
 
 
-        cutterzuweisung.setCutterhautList(hautliste);
-        cutterzuweisung.setCutterauftragList(auftragsliste);
+//        cutterzuweisung.setCutterhautList(hautliste);
+//        cutterzuweisung.setCutterauftragList(auftragsliste);
 
         request.setAttribute("teammitglieder", teammitglieder);
 
@@ -175,7 +185,8 @@ public class CutterbuchungController extends HttpServlet {
         List<InputError> errorlist = new ArrayList<InputError>();
         Map<String, Boolean> errorset = new HashMap<String, Boolean>();
 
-        // :TODO
+        // :
+        // TODO
         //
         // Eingabeprüfung
         //
@@ -256,6 +267,12 @@ public class CutterbuchungController extends HttpServlet {
 
             return null;
         }
+
+        */
     }
 
-}
+
+ }
+
+
+
